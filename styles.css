@@ -1,0 +1,171 @@
+:root {
+    --white: #fff;
+    --green: #4caf50;
+    --gray: #a4aabe;
+    --skyblue: #add8e6;
+    --blue: #6495ed;
+    --yellow: #ffbf00;
+}
+
+.flex__container {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+img {
+    width: 290px;
+    height:  290px;
+}
+
+body {
+    font-family: CaskayDiaMono Nerd Font, Communist;
+    margin: 0;
+    padding: 0;
+}
+
+
+.title {
+    color: var(--yellow);
+    font-family: Communist;
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title__logo {
+    color: var(--green);
+}
+
+header {
+    background-color: var(--skyblue);
+    text-align: center;
+    padding: 20px 20px 0px 20px;
+}
+
+.title-wrapper {
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+nav {
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.active_false:visited {
+    color: var(--white)
+}
+
+.active_false {
+    color: var(--white);
+}
+
+.active_true {
+    background-color: var(--white);
+    color: var(--blue);
+    height: 100%;
+    padding: 0 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.active_true:hover {
+    background-color: var(--white);
+}
+
+nav>a:hover {
+    background-color: var(--yellow);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav a {
+    padding: 0 15px;
+    text-decoration: none;
+}
+
+main {
+    margin: 0 auto;
+    width: 1000px;
+}
+
+li {
+    /* list-style: url("./flower-svgrepo-com.svg"); */
+    list-style: square;
+}
+
+footer {
+    background-color: var(--skyblue);
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+.footer-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 1000px;
+    color: var(--white);
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    background-color: var(--gray);
+    border: 1px solid var(--gray);
+    padding: 12px;
+}
+
+td {
+    border: 1px solid var(--gray);
+    padding: 5px;
+}
+
+/* contact */
+
+.contact__container>form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    padding-top: 10px;
+}
+
+input {
+    width: 70%;
+    height: 20px;
+}
+
+/* catalog */
+
+.flower__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.flower__card {
+    display: flex;
+    flex-direction: column;
+}
+
+.flower__title {
+    font-size: 32px;
+}

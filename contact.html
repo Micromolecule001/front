@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Зворотній зв’язок</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="title-wrapper"> 
+            <!-- Назва каталогу та його логотип -->
+            <h1 class="title">
+                    <span class="title__logo">󰉊 Flo</span>wer
+            </h1>
+            <!-- Навігаційне меню з кнопками Каталог, Відгуки про товар, Зворотній звʼязок -->
+            <nav>
+                <a class="active_false" href="catalog.html">Каталог</a>
+                <a class="active_false" href="index.html">Відгуки про товар</a>
+                <a class="active_true" href="contact.html">Зворотній зв’язок</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="contact__container">
+        <form id="contact__form">
+                
+            <div class="flex__container">
+                <label for="name">Прізвище та ім’я</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+
+            <div class="flex__container">
+                <label for="email"> E-mail </label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="flex__container">
+                <label for="age"> Дата народження </label>
+                <input type="date" id="age" name="age" min="18" required>
+            </div>
+
+            <label for="education">Освіта</label>
+            <select id="education" name="education" required>
+                <option value="повна">Повна</option>
+                <option value="неповна">Неповна</option>
+                <option value="вища">Вища</option>
+                <option value="професійна">Професійна</option>
+            </select>
+
+            <label for="interests">Інтереси:</label>
+            <select id="interests" name="interests">
+                <option value="хобі">Квіти/авто – це хобі</option>
+                <option value="садівництво">Професіонал у садівництві/авто</option>
+                <option value="керівник">Керівник компанії з реклами</option>
+            </select>
+
+            <label for="purpose">Мета зворотнього зв’язку:</label>
+            <select id="purpose" name="purpose" required>
+                <option value="співпраця">Співпраця</option>
+                <option value="скарга">Скарга на порушення права власності</option>
+                <option value="пропозиція">Пропозиція</option>
+
+            <label for="details">Детально:</label>
+        </form>
+    </main>
+
+    <footer>
+        <div class="footer-wrapper">
+            <p>Адреса: вул. Прикладна, 123, Київ</p>
+            <p>Контакт: +38(050)123-45-67</p>
+        </div>
+    </footer>
+</body>
+</html>
+

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота №3 - JavaScript</title>
+</head>
+<body>
+    <h1>Лабораторна робота №3</h1>
+    <h2>Операції з товарами та користувачами</h2>
+
+    <h3>Товари</h3>
+    <p>Консоль покаже результати операцій з товарами.</p>
+    
+    <h3>Користувачі</h3>
+    <p>Консоль покаже результати операцій з користувачами.</p>
+
+    <script>
+        let products = [
+            { id: 1, article: "A1B2C3", name: "Телевізор", country: "Китай", price1: 12000, price2: 10000, price3: 9000, quantity: 50 },
+            { id: 2, article: "X1Y2Z3", name: "Ноутбук", country: "Німеччина", price1: 25000, price2: 20000, price3: 18000, quantity: 30 },
+            { id: 3, article: "D4E5F6", name: "Смартфон", country: "США", price1: 15000, price2: 13000, price3: 12000, quantity: 70 },
+            { id: 4, article: "G7H8I9", name: "Планшет", country: "Італія", price1: 7000, price2: 6500, price3: 6000, quantity: 40 },
+            { id: 5, article: "J1K2L3", name: "Мікрохвильова піч", country: "Іспанія", price1: 5000, price2: 4500, price3: 4000, quantity: 20 },
+            { id: 6, article: "L8M9N0", name: "Пилосос", country: "Франція", price1: 7000, price2: 6500, price3: 6000, quantity: 25 },
+            { id: 7, article: "X9Y8Z1", name: "Духова шафа", country: "Канада", price1: 12000, price2: 11000, price3: 10000, quantity: 15 },
+            { id: 8, article: "A2B3C4", name: "Холодильник", country: "Італія", price1: 15000, price2: 14000, price3: 13000, quantity: 10 },
+            { id: 9, article: "K5L6M7", name: "Кондиціонер", country: "Японія", price1: 25000, price2: 23000, price3: 21000, quantity: 5 },
+            { id: 10, article: "P1Q2R3", name: "Пральна машина", country: "США", price1: 18000, price2: 17000, price3: 16000, quantity: 8 },
+        ];
+
+        // Впорядкування товарів за країною
+        function sortByCountryUa(products) {
+            return products.sort((a, b) => a.country.localeCompare(b.country, 'uk', { sensitivity: 'base' }));
+        }
+
+        console.log(sortByCountryUa(products))
+
+        // Середня вартість товарів з однієї країни
+        function averagePriceByCountry(country) {
+            let filteredProducts = products.filter(product => product.country === country);
+            let total = filteredProducts.reduce((sum, product) => sum + product.price3, 0);
+            return total / filteredProducts.length;
+        }
+        console.log('Average price for products from Ukraine:', averagePriceByCountry("Україна"));
+
+        // Мінімальна вартість2_недіюча
+        let minPriceProduct = products.reduce((min, product) => product.price2 < min.price2 ? product : min);
+        console.log('Product with the minimum price2:', minPriceProduct.id);
+
+        // Додавання нового запису
+        function addProduct(newProduct) {
+            let hasAllInfo = newProduct.article && newProduct.name && newProduct.country && newProduct.price1 && newProduct.price2 && newProduct.price3 && newProduct.quantity;
+            if (hasAllInfo) {
+                products.unshift(newProduct); // Додаємо на початок
+            } else {
+                products.push(newProduct); // Додаємо в кінець
+            }
+        }
+        addProduct({ article: "G7H8I9", name: "Планшет", country: "Китай", price1: 7000, price2: 6500, price3: 6000, quantity: 40 });
+        console.log('Products after adding a new one:', products);
+
+        // Список попиту на місяць
+        function calculateMonthlyOrder() {
+            return products.map(product => ({
+                id: product.id,
+                demandValue: product.quantity * product.price3
+            }));
+        }
+        console.log('Monthly demand for each product:', calculateMonthlyOrder());
+
+        let users = [
+            {
+                surname: "Іваненко",
+                name: "Іван",
+                age: 25,
+                education: "Вища",
+                feedbackGoal: "Запит на товар",
+                date: new Date(2024, 8, 12),
+                time: "10:15"
+            },
+            {
+                surname: "Петров",
+                name: "Петро",
+                age: 30,
+                education: "Середня",
+                feedbackGoal: "Скарга",
+                date: new Date(2024, 8, 13),
+                time: "17:30"
+            },
+            {
+                surname: "Сидоренко",
+                name: "Олексій",
+                age: 20,
+                education: "Вища",
+                feedbackGoal: "Пропозиція",
+                date: new Date(2024, 8, 10),
+                time: "09:45"
+            },
+            {
+                surname: "Коваль",
+                name: "Олена",
+                age: 35,
+                education: "Вища",
+                feedbackGoal: "Запит на доставку",
+                date: new Date(2024, 8, 15),
+                time: "14:20"
+            },
+            {
+                surname: "Гринюк",
+                name: "Марія",
+                age: 40,
+                education: "Середня",
+                feedbackGoal: "Скарга на сервіс",
+                date: new Date(2024, 8, 18),
+                time: "16:45"
+            },
+            {
+                surname: "Литвин",
+                name: "Олександр",
+                age: 28,
+                education: "Вища",
+                feedbackGoal: "Запит на повернення",
+                date: new Date(2024, 8, 11),
+                time: "11:10"
+            },
+            {
+                surname: "Ткаченко",
+                name: "Анна",
+                age: 32,
+                education: "Вища",
+                feedbackGoal: "Запит на гарантію",
+                date: new Date(2024, 8, 20),
+                time: "13:00"
+            },
+            {
+                surname: "Дорошенко",
+                name: "Олег",
+                age: 22,
+                education: "Середня",
+                feedbackGoal: "Питання щодо товару",
+                date: new Date(2024, 8, 12),
+                time: "10:05"
+            },
+            {
+                surname: "Шевченко",
+                name: "Василь",
+                age: 29,
+                education: "Вища",
+                feedbackGoal: "Запит на послугу",
+                date: new Date(2024, 8, 14),
+                time: "15:30"
+            },
+            {
+                surname: "Мельник",
+                name: "Наталія",
+                age: 27,
+                education: "Вища",
+                feedbackGoal: "Питання щодо оплати",
+                date: new Date(2024, 8, 19),
+                time: "09:50"
+            }
+        ];
+
+        // Виведення користувачів за місяцем
+        function usersByMonth(month) {
+            return users.filter(user => user.date.getMonth() === month);
+        }
+        console.log('Users who contacted in September:', usersByMonth(8)); // Вересень
+
+        // Середній вік користувачів
+        function averageAge() {
+            let totalAge = users.reduce((sum, user) => sum + user.age, 0);
+            let avg = totalAge / users.length;
+            let typicalUser = users.find(user => user.age === avg);
+            return typicalUser ? typicalUser.education : "Не знайдено";
+        }
+
+        console.log('Average user age and typical education:', averageAge());
+
+        // Поділ користувачів за часом звернення
+        function classifyUsersByTime() {
+            let workingHours = users.filter(user => parseInt(user.time.split(':')[0]) >= 9 && parseInt(user.time.split(':')[0]) <= 18);
+            let offHours = users.filter(user => parseInt(user.time.split(':')[0]) < 9 || parseInt(user.time.split(':')[0]) > 18);
+            return {
+                working: workingHours.length,
+                off: offHours.length
+            };
+        }
+        console.log('Users classified by contact time:', classifyUsersByTime());
+
+        // Сортування користувачів за віком та алфавітом
+        users.sort((a, b) => b.age - a.age || a.surname.localeCompare(b.surname));
+        console.log('Users sorted by age and surname:', users);
+    </script>
+</body>
+</html>
